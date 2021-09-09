@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const mongo = require("../src/connect");
-const { paypal_email } = require("../config.json");
 
 function ticketMessage(id) {
   return new Discord.MessageEmbed()
@@ -81,7 +80,7 @@ function verify_closed(res) {
   return response;
 }
 
-function paypal_ticket(message, user) {
+function whitelist_ticket(message, user) {
   mongo.validateTicket_Author(user.id, async (res) => {
     try {
       status = verify_closed(res);
@@ -142,4 +141,4 @@ function paypal_ticket(message, user) {
   });
 }
 
-module.exports = { paypal_ticket };
+module.exports = {whitelist_ticket };

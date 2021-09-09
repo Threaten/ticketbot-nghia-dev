@@ -148,7 +148,7 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
           } else {
             await messageReaction.users.remove(user.id);
 
-            paypal.paypal_ticket(messageReaction.message, user);
+            whitelist.whitelist_ticket(messageReaction.message, user);
           }
         });
       }
