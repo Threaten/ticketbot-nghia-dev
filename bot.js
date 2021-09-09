@@ -3,14 +3,9 @@ const Discord = require("discord.js"); //To access Discord API
 const { prefix, token } = require("./config.json"); // storing Prefix and Token
 const mongo = require("./src/connect");
 const general = require("./reactions/general");
-<<<<<<< HEAD
-const resell = require("./reactions/resell");
-const kick = require("./reactions/kick");
-const paypal = require("./reactions/paypal");
-=======
+
 const kick = require("./reactions/kick");
 const paypal = require("./reactions/whitelist");
->>>>>>> c3157c0 (test)
 const close = require("./reactions/close");
 const reopen = require("./reactions/reopen");
 const transcript = require("./reactions/transcript");
