@@ -5,7 +5,7 @@ const mongo = require("./src/connect");
 const general = require("./reactions/general");
 
 const kick = require("./reactions/kick");
-const paypal = require("./reactions/whitelist");
+const whitelist = require("./reactions/whitelist");
 const close = require("./reactions/close");
 const reopen = require("./reactions/reopen");
 const transcript = require("./reactions/transcript");
@@ -352,4 +352,4 @@ client.on("message", async (message) => {
   }
 });
 
-client.login(process.env.DISCORD_TOKEN); // Bot Login with token
+client.login(token); // Bot Login with token

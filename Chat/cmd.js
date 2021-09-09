@@ -18,6 +18,7 @@ function chatExport(channel,user){
                 reject(data)
           }
       })
+      
   }).catch(err => console.error(err)) ;
 }
 
