@@ -356,11 +356,9 @@
 
 const Discord = require("discord.js");
 const mongo = require("../src/connect");
-<<<<<<< HEAD
-const chat = require("../Chat/cmd");
-=======
+
 const chat = require("../transcripts/cmd");
->>>>>>> c3157c0 (test)
+
 
 function ticketMessage(channel, user) {
   return new Discord.MessageEmbed()
@@ -369,15 +367,9 @@ function ticketMessage(channel, user) {
     .addField("Ticket Owner", `<@${user.id}>`, true)
     .addField("Ticket Name", `${channel.name}`, true)
     .setTimestamp()
-<<<<<<< HEAD
-    .setFooter(
-      "White2001#0530™  - Type $help 🎵",
-      "https://cdn.discordapp.com/avatars/774628881910202378/548e0caa288842504514596856039e9c.png?size=256"
-    );
-=======
+
     .setFooter("© Threaten")
 
->>>>>>> c3157c0 (test)
 }
 
 function transcriptMessage() {
@@ -397,24 +389,13 @@ function Wrong(auID) {
     .setColor("#c70039")
     .setDescription(`<@${auID}> Something Went wrong. Please Try again`)
     .setTimestamp()
-<<<<<<< HEAD
-    .setFooter(
-      "White2001#0530™  - Type $help 🎵",
-      "https://cdn.discordapp.com/avatars/774628881910202378/548e0caa288842504514596856039e9c.png?size=256"
-    );
-=======
+
     .setFooter("© Threaten")      
->>>>>>> c3157c0 (test)
 }
 
 function create_transcript(message, user) {
   mongo.validateTicket_Channel(message.channel.id, (res) => {
-<<<<<<< HEAD
-    if (res) {
-      mongo.validateConfig(message.guild.id, (config) => {
-        if (config) {
-          message.channel.send(transcripting()).then((msg) => {
-=======
+
     console.log("5");
     if (res) {
       console.log("6");
@@ -422,34 +403,25 @@ function create_transcript(message, user) {
         if (config) {
           message.channel.send(transcripting()).then((msg) => {
             console.log("4");
->>>>>>> c3157c0 (test)
             const webhookClient = new Discord.WebhookClient(
               `${config.transcript.webhookID}`,
               `${config.transcript.webhookToken}`
             );
-<<<<<<< HEAD
-            chat.chatExport(message.channel.id, user.username).then((file) => {
-=======
+
             console.log("7");
             try {
               console.log("8");
             chat.chatExport(message.channel.id, message.channel.name, user.username).then((file) => {
               console.log("1");
->>>>>>> c3157c0 (test)
               const embed = new Discord.MessageEmbed()
                 .setColor("#bbf1c8")
                 .setTitle(`Transcript executed by ${user.tag}`)
                 .addField("Ticket Owner", `<@${res.authorID}>`, true)
                 .addField("Ticket Name", `${message.channel.name}`, true)
                 .setTimestamp()
-<<<<<<< HEAD
-                .setFooter(
-                  "White2001#0530™  - Type $help 🎵",
-                  "https://cdn.discordapp.com/avatars/774628881910202378/548e0caa288842504514596856039e9c.png?size=256"
-                );
-=======
+
                 .setFooter("© Threaten")
->>>>>>> c3157c0 (test)
+
 
               webhookClient
                 .send({
@@ -458,27 +430,20 @@ function create_transcript(message, user) {
                   embeds: [embed],
                 })
                 .then((m) => {
-<<<<<<< HEAD
-                  return msg.edit(transcriptMessage());
-                })
-                .catch((err) => {
-=======
+
                   console.log("2");
                   return msg.edit(transcriptMessage());
                 })
                 .catch((err) => {
                   console.log("3");
->>>>>>> c3157c0 (test)
                   console.log(err);
                   return msg.edit(Wrong(user.id));
                 });
             });
-<<<<<<< HEAD
-=======
+
           } catch (err) {
             console.error(err);
           }
->>>>>>> c3157c0 (test)
           });
         }
       });
